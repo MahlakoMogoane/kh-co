@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kh&co | Master Carpentry & Custom Commissions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- BRAND PALETTE INTEGRATION --- */
+      :root {
+        --dark-wood: #543d2d; /* Dark Coffee */
+        --white: #ffffff; /* Pure White */
+        --silver: #c0c0c0; /* Industrial Silver */
+        --light-oak: #f4a460; /* Sandy Brown */
+        --deep-oak: #8b4513; /* Saddle Brown */
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      /* --- RESET & BASE --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--white);
+        color: var(--dark-wood);
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* --- NAVIGATION --- */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 8%;
+        background-color: var(--dark-wood);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+      .logo {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: var(--white);
+        letter-spacing: -1px;
+      }
+      .logo span {
+        color: var(--light-oak);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--silver);
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+
+      .btn-cta {
+        background-color: var(--deep-oak);
+        color: var(--white) !important;
+        padding: 0.8rem 1.8rem;
+        border-radius: 2px;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .btn-cta:hover {
+        background-color: var(--light-oak);
+        transform: translateY(-2px);
+        color: var(--dark-wood) !important;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
+          url("assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        padding: 0 5%;
+      }
+      .hero p.tagline {
+        color: var(--light-oak);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 5px;
+        margin-bottom: 1rem;
+      }
+      .hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: -2px;
+      }
+      .hero p.desc {
+        max-width: 650px;
+        font-size: 1.25rem;
+        color: var(--silver);
+        margin-bottom: 2.5rem;
+      }
+
+      /* --- SERVICES GRID --- */
+      .section-padding {
+        padding: 7rem 8%;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: var(--deep-oak);
+        margin: 20px auto;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+      }
+      .card {
+        background-color: #deb887;
+        border: 1px solid var(--silver);
+        overflow: hidden;
+        transition: var(--transition);
+        border-radius: 15px;
+      }
+      .card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(84, 61, 45, 0.1);
+        border-color: var(--light-oak);
+      }
+      .card-image-render {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--silver);
+      }
+
+      .card-img {
+        width: 100%;
+        height: 250px;
+        background-color: var(--silver);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark-wood);
+        font-weight: 600;
+      }
+
+      .card-content {
+        padding: 2.5rem;
+      }
+      .card-content h3 {
+        color: var(--dark-wood);
+        margin-bottom: 0.8rem;
+        font-size: 1.7rem;
+      }
+      .card-content p {
+        color: #666;
+        font-size: 1rem;
+      }
+
+      /* --- ABOUT SECTION (The Heritage Touch) --- */
+      .about {
+        background-color: var(--dark-wood);
+        color: var(--white);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5rem;
+        margin: 0;
+        padding: 5rem;
+      }
+      .about h2 {
+        color: var(--white);
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      .about-text {
+        flex: 1;
+        min-width: 320px;
+      }
+      .about-img {
+        flex: 1;
+        min-width: 320px;
+        height: 550px;
+        background: url("assets/allan-lainez-2d0qB6Gz6ko-unsplash.jpg");
+        background-size: cover;
+        border: 1px solid var(--silver);
+        box-shadow: 20px 20px 0px var(--deep-oak);
+      }
+      .stats {
+        display: flex;
+        gap: 4rem;
+        margin-top: 3rem;
+      }
+      .stat-item h4 {
+        font-size: 3.5rem;
+        color: var(--light-oak);
+        line-height: 1;
+      }
+      .stat-item p {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--silver);
+        letter-spacing: 2px;
+      }
+
+      /* --- CONTACT SECTION --- */
+      .contact-section {
+        background-color: #f8f8f8;
+        border-top: 1px solid var(--silver);
+      }
+      .contact-container {
+        max-width: 850px;
+        margin: 0 auto;
+        background: #deb887;
+        padding: 5rem;
+        border: 1px solid var(--silver);
+        border-radius: 25px;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 1.2rem;
+        background: var(--white);
+        border: 1px solid var(--silver);
+        color: var(--dark-wood);
+        font-family: inherit;
+        border-radius: 15px;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--deep-oak);
+      }
+
+      button.submit {
+        grid-column: span 2;
+        background: var(--dark-wood);
+        color: var(--white);
+        border: none;
+        padding: 1.3rem;
+        cursor: pointer;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: var(--transition);
+        border-radius: 10px;
+      }
+      button.submit:hover {
+        background: var(--deep-oak);
+      }
+
+      footer {
+        background-color: var(--dark-wood);
+        text-align: center;
+        padding: 5rem 2rem;
+        color: var(--silver);
+        font-size: 0.85rem;
+        border-top: 1px solid #6b4f3a;
+      }
+
+      /* --- CLEANED RESPONSIVE DESIGN --- */
+      @media (max-width: 768px) {
+        /* Navigation */
+        .nav-links {
+          display: none;
+        }
+
+        /* Hero Section */
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        /* About Section */
+        .about {
+          margin: 0;
+          padding: 3rem 1.5rem;
+        }
+        .about-img {
+          height: 350px;
+          box-shadow: 10px 10px 0px var(--deep-oak);
+        }
+
+        /* Contact Form Container */
+        .contact-container {
+          padding: 2rem;
+          width: 95%;
+          margin: 0 auto;
+        }
+
+        /* Form Layout */
+        form {
+          grid-template-columns: 1fr !important;
+          gap: 1rem;
+        }
+
+        /* Force all inputs to behave on small screens */
+        .full-width,
+        input,
+        select,
+        textarea,
+        button.submit {
+          grid-column: span 1 !important;
+          width: 100% !important;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">KH<span>&</span>CO</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Legacy</a></li>
+        <li><a href="#contact" class="btn-cta">Start Commission</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <p class="tagline">Heritage Craftsmanship</p>
+      <h1>Mastery in Every Cut.</h1>
+      <p class="desc">
+        Bringing 30 years of woodworking wisdom to your bespoke kitchen units,
+        commercial food carts, and private furniture commissions.
+      </p>
+      <a
+        href="#services"
+        class="btn-cta"
+        style="background: var(--white); color: var(--dark-wood) !important"
+        >Explore Our Work</a
+      >
+    </header>
+
+    <section id="services" class="section-padding">
+      <h2 class="section-title">Our Specialty Services</h2>
+      <div class="grid" id="services-grid"></div>
+    </section>
+
+    <section id="about" class="section-padding about">
+      <div class="about-text">
+        <h2>Three Decades of Precision.</h2>
+        <p style="font-size: 1.15rem; color: var(--silver)">
+          Kh&co is a premier division of ThokeGroup. While the brand has served
+          for 8 years, our foundation is built on 30 years of master carpentry.
+          We don't just build furniture; we engineer heritage pieces.
+        </p>
+        <div class="stats">
+          <div class="stat-item">
+            <h4>30</h4>
+            <p>Years Mastery</p>
+          </div>
+          <div class="stat-item">
+            <h4>EST</h4>
+            <p>2016</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-img"></div>
+    </section>
+
+    <section id="contact" class="section-padding contact-section">
+      <h2 class="section-title">Request a Private Quote</h2>
+      <div class="contact-container">
+        <!-- <form id="commissionForm">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <select class="full-width" required>
+            <option value="" disabled selected>
+              Select Your Project Category
+            </option>
+            <option>Bespoke Kitchen Units</option>
+            <option>Floating TV Stands</option>
+            <option>Magazine Photobooth</option>
+            <option>Mobile Food Carts</option>
+            <option>Bedroom Furniture (Headboards/Pedestals)</option>
+            <option>Custom Carpentry Inquiries</option>
+          </select>
+          <textarea
+            class="full-width"
+            rows="4"
+            placeholder="Dimensions, material preferences, or project details..."
+          ></textarea>
+          <button type="submit" class="submit">Submit for Review</button>
+        </form> -->
+
+        <form id="commissionForm">
+          <input
+            type="text"
+            name="Full Name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="email"
+            name="Email Address"
+            placeholder="Email Address"
+            required
+          />
+
+          <select name="Project Category" class="full-width" required>
+            <option value="" disabled selected>
+              Select Your Project Category
+            </option>
+            <option>Bespoke Kitchen Units</option>
+            <option>Floating TV Stands</option>
+            <option>Magazine Photobooth</option>
+            <option>Mobile Food Carts</option>
+            <option>Bedroom Furniture</option>
+            <option>Custom Carpentry Inquiries</option>
+          </select>
+
+          <textarea
+            name="Project Details"
+            class="full-width"
+            rows="4"
+            placeholder="Dimensions, material preferences..."
+          ></textarea>
+
+          <button type="submit" class="submit">Submit for Review</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div style="margin-bottom: 30px">
+        <div class="logo" style="font-size: 2.2rem">KH<span>&</span>CO</div>
+        <p style="margin-top: 10px; letter-spacing: 1px">
+          A PROUD DIVISION OF THOKEGROUP
+        </p>
+      </div>
+      <p>&copy; 2026 KH&CO WOODWORKING. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+      // Project Data
+      const services = [
+        {
+          title: "Kitchen Units",
+          desc: "Full-service kitchen design, from minimalist modern cabinetry to luxury island centerpieces.",
+          Image: "assets/kitchenUnit.jpg",
+        },
+        {
+          title: "Floating TV Stands",
+          desc: "Wall-mounted entertainment units crafted for clean aesthetics and perfect wire management.",
+          Image: "assets/floatingTVStands.jpg",
+        },
+        {
+          title: "Event Photobooths",
+          desc: "Premium life-size Magazine Photobooths and grand backdrops for luxury brand launches.",
+          Image: "assets/photobooths.jpg",
+        },
+        {
+          title: "Commercial Units",
+          desc: "Functional, heavy-duty mobile food carts and retail stations built for commercial use.",
+          Image: "assets/CommercialUnits.jpg",
+        },
+        {
+          title: "Bespoke Furniture",
+          desc: "Hand-crafted headboards, pedestals, and dining tables built to your exact measurements.",
+          Image: "assets/bespokeFurniture.jpg",
+        },
+        {
+          title: "Design Consulting",
+          desc: "Expert material selection and dimension planning for your architectural projects.",
+          Image: "assets/consulting.jpg",
+        },
+      ];
+
+      // Rendering Cards
+      const grid = document.getElementById("services-grid");
+      services.forEach((s) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const visual = s.Image
+          ? `<img src="${s.Image}" class="card-image-render" alt="${s.title}">`
+          : `<div class="card-img">[Photo: ${s.title}]</div>`;
+
+        card.innerHTML = `
+                ${visual}
+                <div class="card-content">
+                    <h3>${s.title}</h3>
+                    <p>${s.desc}</p>
+                </div>
+            `;
+        grid.appendChild(card);
+      });
+
+      document
+        .getElementById("commissionForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = this.querySelector('[name="Full Name"]').value;
+          const email = this.querySelector('[name="Email Address"]').value;
+          const category = this.querySelector(
+            '[name="Project Category"]',
+          ).value;
+          const details = this.querySelector('[name="Project Details"]').value;
+
+          const bodyText = `Client Name: ${name}
+            Client Email: ${email}
+            Category: ${category}
+
+            Project Details:
+            ${details}`;
+
+          const mailtoLink = `mailto:kg.thoke@gmail.com?subject=Inquiry&body=${encodeURIComponent(bodyText)}`;
+
+          window.location.href = mailtoLink;
+
+          window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+          alert(
+            "Opening your email app... Please click 'SEND' to finalize your inquiry.",
+          );
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
