@@ -9,7 +9,7 @@
   
   <meta property="og:title" content="KH&CO | Master Carpentry">
   <meta property="og:description" content="30 Years of Mastery. Bespoke timber solutions and custom commissions.">
-  <meta property="og:image" content="https://yourdomain.com/assets/preview-image.jpg">
+  <meta property="og:image" content="https://kh-co-34gc.vercel.app/assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg">
 
 
     <title>Kh&co | Master Carpentry & Custom Commissions</title>
@@ -316,6 +316,10 @@
         border-top: 1px solid #6b4f3a;
       }
 
+      a{
+        color: var(--silver);
+      }
+
       /* --- CLEANED RESPONSIVE DESIGN --- */
       @media (max-width: 768px) {
         /* Navigation */
@@ -376,7 +380,7 @@
 
     <header class="hero">
       <p class="tagline">Heritage Craftsmanship</p>
-      <h1>KH&CO<br></h1>
+      <h1>KH&CO – Bespoke Carpentry in Gauteng<br></h1>
       <h2>Master Carpentry & Woodworking Mastery.</h2>
       <p class="desc">
         Bringing 30 years of woodworking wisdom to your bespoke kitchen units,
@@ -461,6 +465,10 @@
     <footer>
       <div style="margin-bottom: 30px">
         <div class="logo" style="font-size: 2.2rem">KH<span>&</span>CO</div>
+        <p>
+          Serving Gauteng • Johannesburg & Pretoria<br>
+          Email: <a href="mailto:kg.thoke@gmail.com">kg.thoke@gmail.com</a>
+        </p>
         <p style="margin-top: 10px; letter-spacing: 1px">
           A PROUD DIVISION OF THOKEGROUP
         </p>
@@ -503,31 +511,37 @@
           title: "Kitchen Units",
           desc: "Full-service kitchen design, from minimalist modern cabinetry to luxury island centerpieces.",
           Image: "assets/kitchenUnit.jpg",
+          alt: "Custom built kitchen units in Gauteng by KH&CO carpentry"
         },
         {
           title: "Floating TV Stands",
           desc: "Wall-mounted entertainment units crafted for clean aesthetics and perfect wire management.",
           Image: "assets/floatingTVStands.jpg",
+          alt: "Custom built floating TV stands in Gauteng by KH&CO carpentry"
         },
         {
           title: "Event Photobooths",
           desc: "Premium life-size Magazine Photobooths and grand backdrops for luxury brand launches.",
           Image: "assets/photobooths.jpg",
+          alt: "Custom built event photobooths in Gauteng by KH&CO carpentry"
         },
         {
           title: "Commercial Units",
           desc: "Functional, heavy-duty mobile food carts and retail stations built for commercial use.",
           Image: "assets/CommercialUnits.jpg",
+          alt: "Custom built commercial units in Gauteng by KH&CO carpentry"
         },
         {
           title: "Bespoke Furniture",
           desc: "Hand-crafted headboards, pedestals, and dining tables built to your exact measurements.",
           Image: "assets/bespokeFurniture.jpg",
+          alt: "Custom built bespoke furniture in Gauteng by KH&CO carpentry"
         },
         {
           title: "Design Consulting",
           desc: "Expert material selection and dimension planning for your architectural projects.",
           Image: "assets/consulting.jpg",
+          alt: "Custom built design consulting for furniture in Gauteng by KH&CO carpentry"
         },
       ];
 
@@ -538,7 +552,7 @@
         card.className = "card";
 
         const visual = s.Image
-          ? `<img src="${s.Image}" class="card-image-render" alt="${s.title}">`
+          ? `<img src="${s.Image}" class="card-image-render" alt="${s.alt}">`
           : `<div class="card-img">[Photo: ${s.title}]</div>`;
 
         card.innerHTML = `
