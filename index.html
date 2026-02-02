@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KH&CO provides 30 years of mastery in bespoke carpentry, custom kitchen units, and commercial food carts. Expert craftsmanship for unique timber commissions.">
+
+  <meta name="keywords" content="KH&CO, KH and Co, carpentry, custom furniture, bespoke kitchens, woodworking, food carts, carpentry South Africa">
+  
+  <meta property="og:title" content="KH&CO | Master Carpentry">
+  <meta property="og:description" content="30 Years of Mastery. Bespoke timber solutions and custom commissions.">
+  <meta property="og:image" content="https://yourdomain.com/assets/preview-image.jpg">
+
+
     <title>Kh&co | Master Carpentry & Custom Commissions</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
@@ -367,7 +376,8 @@
 
     <header class="hero">
       <p class="tagline">Heritage Craftsmanship</p>
-      <h1>Mastery in Every Cut.</h1>
+      <h1>KH&CO<br></h1>
+      <h2>Master Carpentry & Woodworking Mastery.</h2>
       <p class="desc">
         Bringing 30 years of woodworking wisdom to your bespoke kitchen units,
         commercial food carts, and private furniture commissions.
@@ -410,28 +420,6 @@
     <section id="contact" class="section-padding contact-section">
       <h2 class="section-title">Request a Private Quote</h2>
       <div class="contact-container">
-        <!-- <form id="commissionForm">
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email Address" required />
-          <select class="full-width" required>
-            <option value="" disabled selected>
-              Select Your Project Category
-            </option>
-            <option>Bespoke Kitchen Units</option>
-            <option>Floating TV Stands</option>
-            <option>Magazine Photobooth</option>
-            <option>Mobile Food Carts</option>
-            <option>Bedroom Furniture (Headboards/Pedestals)</option>
-            <option>Custom Carpentry Inquiries</option>
-          </select>
-          <textarea
-            class="full-width"
-            rows="4"
-            placeholder="Dimensions, material preferences, or project details..."
-          ></textarea>
-          <button type="submit" class="submit">Submit for Review</button>
-        </form> -->
-
         <form id="commissionForm">
           <input
             type="text"
@@ -479,6 +467,34 @@
       </div>
       <p>&copy; 2026 KH&CO WOODWORKING. ALL RIGHTS RESERVED.</p>
     </footer>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "KH&CO",
+        "alternateName": "KH and Co",
+        "url": "https://kh-co-34gc.vercel.app/",
+        "logo": "https://kh-co-34gc.vercel.app/assets/logo.png",
+        "image": "https://kh-co-34gc.vercel.app/assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg",
+        "description": "Master carpentry and custom timber commissions with 30 years of experience.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Johannesburg, Pretoria",
+          "addressRegion": "Gauteng",
+          "addressCountry": "ZA"
+        },
+        "service": [
+          "Bespoke Kitchen Units",
+          "Commercial Units",
+          "Custom Furniture",
+          "Floating TV Stands",
+          "Event Photobooths",
+          "Design Consulting"
+        ],
+        "priceRange": "$$"
+      }
+      </script>
 
     <script>
       // Project Data
@@ -557,8 +573,6 @@
           const mailtoLink = `mailto:kg.thoke@gmail.com?subject=Inquiry&body=${encodeURIComponent(bodyText)}`;
 
           window.location.href = mailtoLink;
-
-          window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
           alert(
             "Opening your email app... Please click 'SEND' to finalize your inquiry.",
