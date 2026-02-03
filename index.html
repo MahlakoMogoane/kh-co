@@ -29,6 +29,9 @@
         --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
 
+      html {
+  scroll-behavior: smooth;
+}
       /* --- RESET & BASE --- */
       * {
         margin: 0;
@@ -320,6 +323,56 @@
         color: var(--silver);
       }
 
+      /* Container for the checkbox to give it some padding and alignment */
+.whatsapp-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  margin-top: -0.5rem; /* Pulls it slightly closer to the phone field above it */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--dark-wood);
+}
+
+/* Custom Checkbox Size */
+.checkbox-container input[type="checkbox"] {
+  width: 22px !important;
+  height: 22px !important;
+  accent-color: var(--deep-oak); /* Colors the checkbox to match your brand */
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkbox-label {
+  font-weight: 400;
+  color: var(--dark-wood);
+}
+
+.phone-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--white);
+  padding: 5px;
+  border-radius: 15px;
+  border: 1px solid var(--silver);
+}
+
+.phone-row input {
+  border: none !important; /* Removes double border */
+  flex: 1;
+}
+
+.whatsapp-wrapper {
+  white-space: nowrap; /* Keeps the text on one line */
+  padding-right: 15px;
+}
       /* --- CLEANED RESPONSIVE DESIGN --- */
       @media (max-width: 768px) {
         /* Navigation */
@@ -365,6 +418,11 @@
           width: 100% !important;
           font-size: 16px;
         }
+
+        .whatsapp-container {
+    margin-top: 0;
+    padding: 0.5rem 0;
+  }
       }
     </style>
   </head>
@@ -424,41 +482,37 @@
     <section id="contact" class="section-padding contact-section">
       <h2 class="section-title">Request a Private Quote</h2>
       <div class="contact-container">
-        <form id="commissionForm">
-          <input
-            type="text"
-            name="Full Name"
-            placeholder="Full Name"
-            required
-          />
-          <input
-            type="email"
-            name="Email Address"
-            placeholder="Email Address"
-            required
-          />
-
-          <select name="Project Category" class="full-width" required>
-            <option value="" disabled selected>
-              Select Your Project Category
-            </option>
-            <option>Bespoke Kitchen Units</option>
-            <option>Floating TV Stands</option>
-            <option>Magazine Photobooth</option>
-            <option>Mobile Food Carts</option>
-            <option>Bedroom Furniture</option>
-            <option>Custom Carpentry Inquiries</option>
-          </select>
-
-          <textarea
-            name="Project Details"
-            class="full-width"
-            rows="4"
-            placeholder="Dimensions, material preferences..."
-          ></textarea>
-
-          <button type="submit" class="submit">Submit for Review</button>
-        </form>
+          <form id="commissionForm">
+            <input type="text" name="Full Name" placeholder="Full Name" required />
+            <input type="email" name="Email Address" placeholder="Email Address" required />
+            <!-- <input type="number" name="Phone Number (012 345 6789)" placeholder="Phone Number" required /> -->
+        
+            <div class="full-width">
+              <input type="number" name="Phone Number" placeholder="Phone Number (e.g. 0123456789)" style="width: 100%;" required />
+            </div>
+            
+            <div class="whatsapp-container full-width">
+              <label class="checkbox-container">
+                <input type="checkbox" name="WhatsApp">
+                <span class="checkmark"></span>
+                <span class="checkbox-label">This is also my WhatsApp number</span>
+              </label>
+            </div>
+        
+            <select name="Project Category" class="full-width" required>
+              <option value="" disabled selected>Select Your Project Category</option>
+              <option>Bespoke Kitchen Units</option>
+              <option>Floating TV Stands</option>
+              <option>Magazine Photobooth</option>
+              <option>Mobile Food Carts</option>
+              <option>Bedroom Furniture</option>
+              <option>Custom Carpentry Inquiries</option>
+            </select>
+        
+            <textarea name="Project Details" class="full-width" rows="4" placeholder="Dimensions, material preferences..."></textarea>
+        
+            <button type="submit" class="submit">Submit for Review</button>
+          </form>
       </div>
     </section>
 
@@ -500,7 +554,7 @@
           "Event Photobooths",
           "Design Consulting"
         ],
-        "priceRange": "$$"
+        "priceRange": "RR"
       }
       </script>
 
@@ -565,34 +619,46 @@
         grid.appendChild(card);
       });
 
-      document
-        .getElementById("commissionForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      document.getElementById("commissionForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-          const name = this.querySelector('[name="Full Name"]').value;
-          const email = this.querySelector('[name="Email Address"]').value;
-          const category = this.querySelector(
-            '[name="Project Category"]',
-          ).value;
-          const details = this.querySelector('[name="Project Details"]').value;
+  // Capture Values
+  const name = this.querySelector('[name="Full Name"]').value;
+  const email = this.querySelector('[name="Email Address"]').value;
+  const phone = this.querySelector('[name="Phone Number"]').value;
+  const category = this.querySelector('[name="Project Category"]').value;
+  const details = this.querySelector('[name="Project Details"]').value;
+  
+  // WhatsApp Logic
+  const isWhatsApp = this.querySelector('[name="WhatsApp"]').checked;
+  let finalWhatsApp;
 
-          const bodyText = `Client Name: ${name}
-            Client Email: ${email}
-            Category: ${category}
+  if (isWhatsApp) {
+    finalWhatsApp = phone;
+  } else {
+    // If not checked, ask for the specific WhatsApp number
+    const promptValue = prompt("Please enter your WhatsApp contact number (or 'None'):");
+    finalWhatsApp = (promptValue && promptValue.trim() !== "") ? promptValue : "Not Provided";
+  }
 
-            Project Details:
-            ${details}`;
+  // Email Body
+  const bodyText = `New Inquiry for KH&CO
+---------------------------
+Client: ${name}
+Email: ${email}
+Phone: ${phone}
+WhatsApp: ${finalWhatsApp}
+Category: ${category}
 
-          const mailtoLink = `mailto:kg.thoke@gmail.com?subject=Inquiry&body=${encodeURIComponent(bodyText)}`;
+Project Details:
+${details}`;
 
-          window.location.href = mailtoLink;
+  const mailtoLink = `mailto:morning.gloriii@gmail.com?subject=Project Inquiry: ${category}&body=${encodeURIComponent(bodyText)}`;
 
-          alert(
-            "Opening your email app... Please click 'SEND' to finalize your inquiry.",
-          );
-          this.reset();
-        });
+  window.location.href = mailtoLink;
+  alert("Redirecting to your email app...");
+  this.reset();
+});
     </script>
   </body>
 </html>
