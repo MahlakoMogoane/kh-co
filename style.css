@@ -61,6 +61,10 @@ nav {
     color: var(--light-oak);
 }
 
+.logo a{
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     gap: 2.5rem;
@@ -96,6 +100,36 @@ nav {
     background-color: var(--light-oak);
     transform: translateY(-2px);
     color: var(--dark-wood) !important;
+}
+
+.btn-portfolio {
+    background-color: var(--deep-oak);
+    color: var(--white) !important;
+    padding: 0.8rem, 1.8rem;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 250px;
+    height: 50px;
+}
+
+.btn-portfolio:hover{
+    background-color: var(--light-oak);
+    transform: translateY(-2px);
+    color: var(--dark-wood)!important;
+}
+
+.portfolio-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
 }
 
 /* --- HERO SECTION --- */
@@ -444,4 +478,101 @@ a {
         margin-top: 0;
         padding: 0.5rem 0;
     }
+}
+/* --- GALLERY PAGE --- */
+
+.gallery-filters {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: var(--dark-wood);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 1rem;
+    cursor: pointer;
+    padding-bottom: 5px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.filter-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--deep-oak);
+    transition: var(--transition);
+}
+
+.filter-btn:hover::after,
+.filter-btn.active::after {
+    width: 100%;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid var(--silver);
+    transition: var(--transition);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(84, 61, 45, 0.15);
+    border-color: var(--light-oak);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(84, 61, 45, 0.85),
+            rgba(84, 61, 45, 0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h3 {
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.gallery-overlay p {
+    color: var(--light-oak);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

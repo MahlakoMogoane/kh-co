@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="KH&CO provides many years of mastery in bespoke carpentry, custom kitchen units, and commercial food carts. Expert craftsmanship for unique timber commissions.">
+
+  <meta name="keywords" content="KH&CO, KH and Co, carpentry, custom furniture, bespoke kitchens, woodworking, food carts, carpentry South Africa">
+  
+  <meta property="og:title" content="KH&CO | Master Carpentry">
+  <meta property="og:description" content="Many Years of Mastery. Bespoke timber solutions and custom commissions.">
+  <meta property="og:image" content="https://kh-co-34gc.vercel.app/assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg">
+
+
+    <title>Kh&co | Master Carpentry & Custom Commissions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo"><a href="index.html">KH<span>&</span>CO</a></div>
+      <ul class="nav-links">
+        <!-- <li><a href="#services">Services</a></li> -->
+         <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <!-- <li><a href="#about">Legacy</a></li> -->
+        <li><a href="contact.html" class="btn-cta">Start Commission</a></li>
+        <li><a href="policy.html">Policy</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <p class="tagline">Heritage Craftsmanship</p>
+      <h1>KH&CO – Gallery<br></h1>
+      <!-- <h2>Master Carpentry & Woodworking Mastery.</h2>
+      <p class="desc">
+        Bringing many years of woodworking wisdom to your bespoke kitchen units,
+        commercial food carts, and private furniture commissions.
+      </p>
+      <a
+        href="#services"
+        class="btn-cta"
+        style="background: var(--white); color: var(--dark-wood) !important"
+        >Explore Our Work</a
+      > -->
+      <p class="desc">
+        See our grand portfolio of fine craftsmanship
+      </p>
+    </header>
+    <main class="section-padding">
+
+        <h2 class="section-title">Our Work</h2>
+    
+        <!-- FILTERS -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="kitchens">Kitchens</button>
+            <button class="filter-btn" data-filter="furniture">Furniture</button>
+            <button class="filter-btn" data-filter="commercial">Commercial Units</button>
+            <button class="filter-btn" data-filter="tvstands">TV Stands</button>
+            <button class="filter-btn" data-filter="photobooths">Photobooths</button>
+            <button class="filter-btn" data-filter="custom">Custom Builds</button>
+        </div>
+    
+        <!-- GALLERY GRID -->
+        <div class="grid gallery-grid"></div>
+    
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        
+          const projects = [
+            {
+              title: "Kitchen Installation",
+              category: "kitchens",
+              description: "Full cabinetry with island feature and concealed lighting.",
+              images: ["assets/kitchenUnit.jpg"]
+            },
+            {
+              title: "Bespoke Furniture",
+              category: "furniture",
+              description: "Hand-crafted 8-seater solid oak dining table.",
+              images: ["assets/bespokeFurniture.jpg"]
+            },
+            {
+              title: "Commercial Units",
+              category: "commercial",
+              description: "Commercial-grade mobile coffee cart with storage and canopy.",
+              images:  ["assets/commercialUnits.jpg"]
+            },
+            {
+              title: "Custom Pieces",
+              category: "custom",
+              description: "Commercial-grade mobile coffee cart with storage and canopy.",
+              images:  ["assets/consulting.jpg"]
+            },
+            {
+              title: "Floating TV Stands",
+              category: "tvstands",
+              description: "Commercial-grade mobile coffee cart with storage and canopy.",
+              images:  ["assets/floatingTVStands.jpg"]
+            }
+            ,{
+              title: "Photobooths",
+              category: "photobooths",
+              description: "Commercial-grade mobile coffee cart with storage and canopy.",
+              images:  [ "assets/photobooths.jpg"]
+            }
+          ];
+        
+          const galleryGrid = document.querySelector(".gallery-grid");
+        
+          projects.forEach(project => {
+        
+            project.images.forEach(image => {
+        
+              const item = document.createElement("div");
+              item.className = `gallery-item ${project.category}`;
+        
+              item.innerHTML = `
+                <img src="${image}" alt="${project.title}">
+                <div class="gallery-overlay">
+                  <h3>${project.title}</h3>
+                  <p>${project.category}</p>
+                </div>
+              `;
+        
+              galleryGrid.appendChild(item);
+        
+            });
+        
+          });
+        
+          //filter images
+          const filterButtons = document.querySelectorAll(".filter-btn");
+          const items = document.querySelectorAll(".gallery-item");
+        
+          filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+        
+              document.querySelector(".filter-btn.active")
+                .classList.remove("active");
+        
+              button.classList.add("active");
+        
+              const filter = button.dataset.filter;
+        
+              items.forEach(item => {
+                if (filter === "all" || item.classList.contains(filter)) {
+                  item.style.display = "block";
+                  item.style.width = "400px";
+                } else {
+                  item.style.display = "none";
+                }
+              });
+        
+            });
+          });
+        
+        });
+        </script>
+        
+  </body>
+
+</html>
