@@ -3,46 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="KH&CO provides many years of mastery in bespoke carpentry, custom kitchen units, and commercial food carts. Expert craftsmanship for unique timber commissions."
-    />
-
-    <meta
-      name="keywords"
-      content="KH&CO, KH and Co, carpentry, custom furniture, bespoke kitchens, woodworking, food carts, carpentry South Africa"
-    />
-
-    <meta property="og:title" content="KH&CO | Master Carpentry" />
-    <meta
-      property="og:description"
-      content="Many Years of Mastery. Bespoke timber solutions and custom commissions."
-    />
-    <meta
-      property="og:image"
-      content="https://kh-co-34gc.vercel.app/assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg"
-    />
-
+    <meta name="description" content="KH&CO provides many years of mastery in bespoke carpentry..." />
     <title>Kh&co | Master Carpentry & Custom Commissions</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Lightbox & Navigation Styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox.active { display: flex; }
+      
+      .lightbox-img {
+        max-width: 85%;
+        max-height: 80vh;
+        border: 2px solid #fff;
+        object-fit: contain;
+        background-color: #1a1a1a; /* Dark background while loading */
+      }
+
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: none;
+        font-size: 3rem;
+        padding: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+        user-select: none;
+        z-index: 10000;
+      }
+      .nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
+      .prev-btn { left: 20px; }
+      .next-btn { right: 20px; }
+
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 10001;
+      }
+
+      @media (max-width: 768px) {
+        .nav-btn { padding: 10px; font-size: 2rem; }
+        .lightbox-img { max-width: 95%; }
+      }
+    </style>
   </head>
 
   <body>
     <nav class="navbar">
-      <div class="logo">
-        <a href="index.html">KH<span>&</span>CO</a>
-      </div>
-
-      <button class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+      <div class="logo"><a href="index.html">KH<span>&</span>CO</a></div>
+      <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="nav-links">
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
@@ -53,166 +82,122 @@
 
     <header class="hero">
       <p class="tagline">Heritage Craftsmanship</p>
-      <h1>KH&CO – Gallery<br /></h1>
-      <!-- <h2>Master Carpentry & Woodworking Mastery.</h2>
-      <p class="desc">
-        Bringing many years of woodworking wisdom to your bespoke kitchen units,
-        commercial food carts, and private furniture commissions.
-      </p>
-      <a
-        href="#services"
-        class="btn-cta"
-        style="background: var(--white); color: var(--dark-wood) !important"
-        >Explore Our Work</a
-      > -->
+      <h1>KH&CO – Gallery</h1>
       <p class="desc">See our grand portfolio of fine craftsmanship</p>
     </header>
+
     <main>
       <div class="section-padding">
         <h2 class="section-title">Our Work</h2>
-
-        <!-- FILTERS -->
         <div class="gallery-filters">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="kitchens">Kitchens</button>
           <button class="filter-btn" data-filter="furniture">Furniture</button>
-          <button class="filter-btn" data-filter="commercial">
-            Commercial Units
-          </button>
+          <button class="filter-btn" data-filter="commercial">Commercial Units</button>
           <button class="filter-btn" data-filter="tvstands">TV Stands</button>
-          <button class="filter-btn" data-filter="photobooths">
-            Photobooths
-          </button>
+          <button class="filter-btn" data-filter="photobooths">Photobooths</button>
           <button class="filter-btn" data-filter="custom">Custom Builds</button>
         </div>
-
-        <!-- GALLERY GRID -->
         <div class="grid gallery-grid"></div>
+      </div>
+
+      <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="close-btn">&times;</span>
+        <button class="nav-btn prev-btn" id="prev-btn" aria-label="Previous image">&#10094;</button>
+        <img src="" alt="Expanded View" class="lightbox-img" id="lightbox-img">
+        <button class="nav-btn next-btn" id="next-btn" aria-label="Next image">&#10095;</button>
       </div>
 
       <footer>
         <div style="margin-bottom: 30px">
           <div class="logo" style="font-size: 2.2rem">KH<span>&</span>CO</div>
-          <p>
-            Serving Gauteng • Johannesburg & Pretoria<br />
-            Email: <a href="mailto:kg.thoke@gmail.com">kg.thoke@gmail.com</a>
-          </p>
-          <p style="margin-top: 10px; letter-spacing: 1px">
-            A PROUD DIVISION OF THOKEGROUP
-          </p>
+          <p>Serving Gauteng • Johannesburg & Pretoria<br />Email: <a href="mailto:kg.thoke@gmail.com">kg.thoke@gmail.com</a></p>
+          <p style="margin-top: 10px; letter-spacing: 1px">A PROUD DIVISION OF THOKEGROUP</p>
         </div>
         <p>&copy; 2026 KH&CO WOODWORKING. ALL RIGHTS RESERVED.</p>
       </footer>
     </main>
 
     <script>
+      // Global navigation toggle
       const menuToggle = document.getElementById("menu-toggle");
       const navLinks = document.getElementById("nav-links");
-      const navItems = navLinks.querySelectorAll("a");
-
       menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("active");
         menuToggle.classList.toggle("active");
-      });
-
-      navItems.forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
       });
     </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const projects = [
-          {
-            title: "Kitchen Installation",
-            category: "kitchens",
-            description:
-              "Full cabinetry with island feature and concealed lighting.",
-            images: [
-              "assets/kitchenUnit.jpg",
-              "assets/Kitchen/FancyWoodenUnit.jpg",
-              "assets/Kitchen/WoodenSlickCabinet.jpg",
-              "assets/Kitchen/FarmhouseCabinets.jpg",
-              "assets/Kitchen/ModernFancyUnits.jpg",
-            ],
-          },
-          {
-            title: "Bespoke Furniture",
-            category: "furniture",
-            description: "Hand-crafted 8-seater solid oak dining table.",
-            images: ["assets/bespokeFurniture.jpg"],
-          },
-          {
-            title: "Commercial Units",
-            category: "commercial",
-            description:
-              "Commercial-grade mobile coffee cart with storage and canopy.",
-            images: ["assets/CommercialUnits.jpg"],
-          },
-          {
-            title: "Custom Pieces",
-            category: "custom",
-            description:
-              "Commercial-grade mobile coffee cart with storage and canopy.",
-            images: ["assets/consulting.jpg"],
-          },
-          {
-            title: "Floating TV Stands",
-            category: "tvstands",
-            description:
-              "Commercial-grade mobile coffee cart with storage and canopy.",
-            images: ["assets/floatingTVStands.jpg"],
-          },
-          {
-            title: "Photobooths",
-            category: "photobooths",
-            description:
-              "Commercial-grade mobile coffee cart with storage and canopy.",
-            images: ["assets/photobooths.jpg"],
-          },
+          { title: "Kitchen Installation", category: "kitchens", images: ["assets/kitchenUnit.jpg", "assets/Kitchen/FancyWoodenUnit.jpg", "assets/Kitchen/WoodenSlickCabinet.jpg", "assets/Kitchen/FarmhouseCabinets.jpg", "assets/Kitchen/ModernFancyUnits.jpg"] },
+          { title: "Bespoke Furniture", category: "furniture", images: ["assets/bespokeFurniture.jpg", "assets/Furniture/HexagonalShelf.jpg", "assets/Furniture/SideTable.jpg", "assets/Furniture/Sofa.jpg", "assets/Furniture/StorageBed.jpg", "assets/Furniture/TradSideTable.jpg", "assets/Furniture/Wardrobe.jpg", "assets/Furniture/WoodenShelf.jpg"] },
+          { title: "Commercial Units", category: "commercial", images: ["assets/CommercialUnits.jpg", "assets/commercial/ReceptionArea.jpg", "assets/commercial/ReceptionDesk.jpg", "assets/commercial/Shelf.jpg", "assets/commercial/StudyDesk.jpg", "assets/commercial/WorkDesk.jpg"] },
+          { title: "Custom Pieces", category: "custom", images: ["assets/consulting.jpg", "assets/custom/CuttingBoard.jpg", "assets/custom/SofaTable.jpg", "assets/custom/ToiletPaperHolder.jpg", "assets/custom/WineRack.jpg", "assets/custom/WoodenClock.jpg"] },
+          { title: "Floating TV Stands", category: "tvstands", images: ["assets/floatingTVStands.jpg", "assets/tvstands/FancyTVStand.jpg", "assets/tvstands/FloatingShelf.jpg", "assets/tvstands/LeggedStand.jpg", "assets/tvstands/StandingStand.jpg", "assets/tvstands/StandShelf.jpg", "assets/tvstands/WallUnit.jpg"] },
+          { title: "Photobooths", category: "photobooths", images: ["assets/photobooths.jpg", "assets/photobooths/FarmStylePhotobooth.jpg", "assets/photobooths/PlainBackground.jpg", "assets/photobooths/VogueBasic.jpg", "assets/photobooths/VogueBooth.jpg", "assets/photobooths/WeddingPhotobooth.jpg"] }
         ];
 
         const galleryGrid = document.querySelector(".gallery-grid");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        let currentImageIndex = 0;
+        let visibleImages = [];
 
+        // 1. Generate the Gallery
         projects.forEach((project) => {
-          project.images.forEach((image) => {
+          project.images.forEach((imagePath) => {
             const item = document.createElement("div");
             item.className = `gallery-item ${project.category}`;
-
             item.innerHTML = `
-                <img src="${image}" alt="${project.title}">
+                <img src="${imagePath}" alt="${project.title}">
                 <div class="gallery-overlay">
                   <h3>${project.title}</h3>
                   <p>${project.category}</p>
                 </div>
               `;
-
+            
+            item.addEventListener("click", () => {
+              // Get current filtered set
+              const allItems = Array.from(document.querySelectorAll('.gallery-item'));
+              visibleImages = allItems
+                .filter(el => window.getComputedStyle(el).display !== 'none')
+                .map(el => el.querySelector('img').getAttribute('src')); // Using getAttribute ensures relative path
+              
+              currentImageIndex = visibleImages.indexOf(imagePath);
+              openLightbox();
+            });
             galleryGrid.appendChild(item);
           });
         });
 
-        //filter images
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const items = document.querySelectorAll(".gallery-item");
+        // 2. Lightbox Controls
+        function openLightbox() {
+          lightboxImg.src = visibleImages[currentImageIndex];
+          lightbox.classList.add("active");
+        }
 
+        const navigate = (direction) => {
+          currentImageIndex = (currentImageIndex + direction + visibleImages.length) % visibleImages.length;
+          lightboxImg.src = visibleImages[currentImageIndex];
+        };
+
+        document.getElementById("next-btn").onclick = (e) => { e.stopPropagation(); navigate(1); };
+        document.getElementById("prev-btn").onclick = (e) => { e.stopPropagation(); navigate(-1); };
+        
+        document.getElementById("close-btn").onclick = () => lightbox.classList.remove("active");
+        lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.classList.remove("active"); };
+
+        // 3. Filtering
+        const filterButtons = document.querySelectorAll(".filter-btn");
         filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
-            document
-              .querySelector(".filter-btn.active")
-              .classList.remove("active");
-
+            document.querySelector(".filter-btn.active").classList.remove("active");
             button.classList.add("active");
-
             const filter = button.dataset.filter;
-
-            items.forEach((item) => {
-              if (filter === "all" || item.classList.contains(filter)) {
-                item.style.display = "block";
-              } else {
-                item.style.display = "none";
-              }
+            document.querySelectorAll(".gallery-item").forEach((item) => {
+              item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none";
             });
           });
         });
