@@ -21,13 +21,20 @@
   </head>
 
   <body>
-    <nav>
-      <div class="logo"><a href="index.html">KH<span>&</span>CO</a></div>
-      <ul class="nav-links">
-        <!-- <li><a href="#services">Services</a></li> -->
-         <li><a href="about.html">About</a></li>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">KH<span>&</span>CO</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <!-- <li><a href="#about">Legacy</a></li> -->
         <li><a href="contact.html" class="btn-cta">Start Commission</a></li>
         <li><a href="policy.html">Policy</a></li>
       </ul>
@@ -100,6 +107,23 @@
             <p>&copy; 2026 KH&CO WOODWORKING. ALL RIGHTS RESERVED.</p>
           </footer>
     </main>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+      const navItems = navLinks.querySelectorAll("a");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      });
+
+      navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    </script>
 
     <script>
         document.getElementById("commissionForm").addEventListener("submit", function (e) {
