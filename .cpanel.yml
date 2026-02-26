@@ -2,10 +2,4 @@
 deployment:
   tasks:
   - export DEPLOYPATH=/home/khandca0y9i6/public_html
-  - /bin/cp index.html $DEPLOYPATH
-  - /bin/cp about.html $DEPLOYPATH
-  - /bin/cp gallery.html $DEPLOYPATH
-  - /bin/cp contact.html $DEPLOYPATH
-  - /bin/cp policy.html $DEPLOYPATH
-  - /bin/cp style.css $DEPLOYPATH
-  - /bin/cp -R assets $DEPLOYPATH
+  - /usr/bin/rsync -av --exclude='.git*' --exclude='.cpanel.yml' $CWD/ $DEPLOYPATH
