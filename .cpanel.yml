@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    # Set where your website lives
+    - export DEPLOYPATH=/home/khandca0y9i6/public_html/
+    # Remove old files
+    - /bin/rm -rf $DEPLOYPATH/*
+    # Copy everything from the repo to public_html
+    - /bin/cp -R * $DEPLOYPATH
