@@ -3,9 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="KH&CO provides many years of mastery in bespoke carpentry..." />
+    <meta
+      name="description"
+      content="KH&CO provides many years of mastery in bespoke carpentry..."
+    />
     <title>Kh&co | Master Carpentry & Custom Commissions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <style>
@@ -22,8 +28,10 @@
         align-items: center;
         justify-content: center;
       }
-      .lightbox.active { display: flex; }
-      
+      .lightbox.active {
+        display: flex;
+      }
+
       .lightbox-img {
         max-width: 85%;
         max-height: 80vh;
@@ -47,9 +55,15 @@
         user-select: none;
         z-index: 10000;
       }
-      .nav-btn:hover { background: rgba(255, 255, 255, 0.3); }
-      .prev-btn { left: 20px; }
-      .next-btn { right: 20px; }
+      .nav-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .prev-btn {
+        left: 20px;
+      }
+      .next-btn {
+        right: 20px;
+      }
 
       .lightbox-close {
         position: absolute;
@@ -62,8 +76,13 @@
       }
 
       @media (max-width: 768px) {
-        .nav-btn { padding: 10px; font-size: 2rem; }
-        .lightbox-img { max-width: 95%; }
+        .nav-btn {
+          padding: 10px;
+          font-size: 2rem;
+        }
+        .lightbox-img {
+          max-width: 95%;
+        }
       }
     </style>
   </head>
@@ -71,7 +90,9 @@
   <body>
     <nav class="navbar">
       <div class="logo"><a href="index.html">KH<span>&</span>CO</a></div>
-      <button class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
@@ -93,9 +114,13 @@
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="kitchens">Kitchens</button>
           <button class="filter-btn" data-filter="furniture">Furniture</button>
-          <button class="filter-btn" data-filter="commercial">Commercial Units</button>
+          <button class="filter-btn" data-filter="commercial">
+            Commercial Units
+          </button>
           <button class="filter-btn" data-filter="tvstands">TV Stands</button>
-          <button class="filter-btn" data-filter="photobooths">Photobooths</button>
+          <button class="filter-btn" data-filter="photobooths">
+            Photobooths
+          </button>
           <button class="filter-btn" data-filter="custom">Custom Builds</button>
         </div>
         <div class="grid gallery-grid"></div>
@@ -103,16 +128,34 @@
 
       <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="close-btn">&times;</span>
-        <button class="nav-btn prev-btn" id="prev-btn" aria-label="Previous image">&#10094;</button>
-        <img src="" alt="Expanded View" class="lightbox-img" id="lightbox-img">
-        <button class="nav-btn next-btn" id="next-btn" aria-label="Next image">&#10095;</button>
+        <button
+          class="nav-btn prev-btn"
+          id="prev-btn"
+          aria-label="Previous image"
+        >
+          &#10094;
+        </button>
+        <img
+          src=""
+          alt="Expanded View"
+          class="lightbox-img"
+          id="lightbox-img"
+        />
+        <button class="nav-btn next-btn" id="next-btn" aria-label="Next image">
+          &#10095;
+        </button>
       </div>
 
       <footer>
         <div style="margin-bottom: 30px">
           <div class="logo" style="font-size: 2.2rem">KH<span>&</span>CO</div>
-          <p>Serving Gauteng • Johannesburg & Pretoria<br />Email: <a href="mailto:kg.thoke@gmail.com">kg.thoke@gmail.com</a></p>
-          <p style="margin-top: 10px; letter-spacing: 1px">A PROUD DIVISION OF THOKEGROUP</p>
+          <p>
+            Serving Gauteng • Johannesburg & Pretoria<br />Email:
+            <a href="mailto:kg.thoke@gmail.com">kg.thoke@gmail.com</a>
+          </p>
+          <p style="margin-top: 10px; letter-spacing: 1px">
+            A PROUD DIVISION OF THOKEGROUP
+          </p>
         </div>
         <p>&copy; 2026 KH&CO WOODWORKING. ALL RIGHTS RESERVED.</p>
       </footer>
@@ -131,24 +174,82 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const projects = [
-          { title: "Kitchen Installation", category: "kitchens", images: ["assets/kitchenUnit.jpg", "assets/Kitchen/FancyWoodenUnit.jpg", "assets/Kitchen/WoodenSlickCabinet.jpg", "assets/Kitchen/FarmhouseCabinets.jpg", "assets/Kitchen/ModernFancyUnits.jpg"] },
-{ 
-  title: "Bespoke Furniture", 
-  category: "furniture", 
-  images: [
-    "assets/bespokeFurniture.jpg", // This is outside the subfolder
-    "assets/furniture/HexagonalShelf.jpg", 
-    "assets/furniture/SideTable.jpg", 
-    "assets/furniture/Sofa.jpg", 
-    "assets/furniture/StorageBed.jpg", 
-    "assets/furniture/TradSideTable.jpg", 
-    "assets/furniture/Wardrobe.jpg", 
-    "assets/furniture/WoodenShelf.jpg"
-  ] 
-},        { title: "Commercial Units", category: "commercial", images: ["assets/CommercialUnits.jpg", "assets/commercial/ReceptionArea.jpg", "assets/commercial/ReceptionDesk.jpg", "assets/commercial/Shelf.jpg", "assets/commercial/StudyDesk.jpg", "assets/commercial/WorkDesk.jpg"] },
-          { title: "Custom Pieces", category: "custom", images: ["assets/consulting.jpg", "assets/custom/CuttingBoard.jpg", "assets/custom/SofaTable.jpg", "assets/custom/ToiletPaperHolder.jpg", "assets/custom/WineRack.jpg", "assets/custom/WoodenClock.jpg"] },
-          { title: "Floating TV Stands", category: "tvstands", images: ["assets/floatingTVStands.jpg", "assets/tvstands/FancyTVStand.jpg", "assets/tvstands/FloatingShelf.jpg", "assets/tvstands/LeggedStand.jpg", "assets/tvstands/StandingStand.jpg", "assets/tvstands/StandShelf.jpg", "assets/tvstands/WallUnit.jpg"] },
-          { title: "Photobooths", category: "photobooths", images: ["assets/photobooths.jpg", "assets/photobooths/FarmStylePhotobooth.jpg", "assets/photobooths/PlainBackground.jpg", "assets/photobooths/VogueBasic.jpg", "assets/photobooths/VogueBooth.jpg", "assets/photobooths/WeddingPhotobooth.jpg"] }
+          {
+            title: "Kitchen Installation",
+            category: "kitchens",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/kitchenUnit_gmrnfi",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/FancyWoodenUnit_eh2fgk",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WoodenSlickCabinet_ocllzi",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/FarmhouseCabinets_n5s66m",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ModernFancyUnits_iqtso5",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/No_hardware_smx9rm",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/Modern_Kitchen_with_Black_Cabinets_Warm_Wood_Accents_myvc7u"
+            ],
+          },
+          {
+            title: "Bespoke Furniture",
+            category: "furniture",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/bespokeFurniture_aqdhw1",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/HexagonalShelf_l831zs",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/SideTable_yh3cfx",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/Sofa_urx2ko",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/StorageBed_dcvwtm",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/TradSideTable_b5ybwt",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/Wardrobe_uozkwo",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WoodenShelf_w2wsxe",
+            ],
+          },
+          {
+            title: "Commercial Units",
+            category: "commercial",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/CommercialUnits_dx2jk1",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ReceptionArea_hu53gq",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ReceptionDesk_x3dvyf",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/Shelf_n8aiug",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/StudyDesk_z6ftcv",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WorkDesk_yezqxe",
+            ],
+          },
+          {
+            title: "Custom Pieces",
+            category: "custom",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/consulting_vuovkf",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/CuttingBoard_yffcoj",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/SofaTable_kquvks",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ToiletPaperHolder_i64hgm",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WineRack_wlzhwe",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WoodenClock_bni0vy",
+            ],
+          },
+          {
+            title: "Floating TV Stands",
+            category: "tvstands",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/floatingTVStands_cdjvit",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/FancyTVStand_rqaaxk",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/FloatingShelf_qrwxx2",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/LeggedStand_foaj8h",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/StandingStand_pxlm95",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/StandShelf_dr9dxq",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WallUnit_dbuvzc",
+            ],
+          },
+          {
+            title: "Photobooths",
+            category: "photobooths",
+            images: [
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/photobooths_r5b7ed",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/FarmStylePhotobooth_hafrre",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/PlainBackground_bkt1lb",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/VogueBasic_kfcdkr",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/VogueBooth_pba3z2",
+              "https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WeddingPhotobooth_fbu9jx",
+            ],
+          },
         ];
 
         const galleryGrid = document.querySelector(".gallery-grid");
@@ -169,14 +270,16 @@
                   <p>${project.category}</p>
                 </div>
               `;
-            
+
             item.addEventListener("click", () => {
               // Get current filtered set
-              const allItems = Array.from(document.querySelectorAll('.gallery-item'));
+              const allItems = Array.from(
+                document.querySelectorAll(".gallery-item"),
+              );
               visibleImages = allItems
-                .filter(el => window.getComputedStyle(el).display !== 'none')
-                .map(el => el.querySelector('img').getAttribute('src')); // Using getAttribute ensures relative path
-              
+                .filter((el) => window.getComputedStyle(el).display !== "none")
+                .map((el) => el.querySelector("img").getAttribute("src")); // Using getAttribute ensures relative path
+
               currentImageIndex = visibleImages.indexOf(imagePath);
               openLightbox();
             });
@@ -191,25 +294,41 @@
         }
 
         const navigate = (direction) => {
-          currentImageIndex = (currentImageIndex + direction + visibleImages.length) % visibleImages.length;
+          currentImageIndex =
+            (currentImageIndex + direction + visibleImages.length) %
+            visibleImages.length;
           lightboxImg.src = visibleImages[currentImageIndex];
         };
 
-        document.getElementById("next-btn").onclick = (e) => { e.stopPropagation(); navigate(1); };
-        document.getElementById("prev-btn").onclick = (e) => { e.stopPropagation(); navigate(-1); };
-        
-        document.getElementById("close-btn").onclick = () => lightbox.classList.remove("active");
-        lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.classList.remove("active"); };
+        document.getElementById("next-btn").onclick = (e) => {
+          e.stopPropagation();
+          navigate(1);
+        };
+        document.getElementById("prev-btn").onclick = (e) => {
+          e.stopPropagation();
+          navigate(-1);
+        };
+
+        document.getElementById("close-btn").onclick = () =>
+          lightbox.classList.remove("active");
+        lightbox.onclick = (e) => {
+          if (e.target === lightbox) lightbox.classList.remove("active");
+        };
 
         // 3. Filtering
         const filterButtons = document.querySelectorAll(".filter-btn");
         filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
-            document.querySelector(".filter-btn.active").classList.remove("active");
+            document
+              .querySelector(".filter-btn.active")
+              .classList.remove("active");
             button.classList.add("active");
             const filter = button.dataset.filter;
             document.querySelectorAll(".gallery-item").forEach((item) => {
-              item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none";
+              item.style.display =
+                filter === "all" || item.classList.contains(filter)
+                  ? "block"
+                  : "none";
             });
           });
         });

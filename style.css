@@ -180,7 +180,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
-    url("assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg");
+    url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ali-mkumbwa-PxlKOcj0a3Q-unsplash_lmbljw");
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -218,7 +218,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
-    url("assets/WoodenMirror.jpeg");
+    url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WoodenMirror_rgyt82");
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -235,7 +235,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
-    url("assets/LightBulbWood.jpeg");
+    url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/LightBulbWood_pe0qox");
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -251,7 +251,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
-    url("assets/WoodPanel.jpeg");
+    url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/WoodPanel_y47v8d");
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -268,7 +268,7 @@ h3 {
   text-align: center;
   background:
     linear-gradient(rgba(60, 50, 40, 0.55), rgba(40, 35, 30, 0.8)),
-    url("assets/ali-mkumbwa-PxlKOcj0a3Q-unsplash.jpg");
+    url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/ali-mkumbwa-PxlKOcj0a3Q-unsplash_lmbljw");
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -378,7 +378,7 @@ h3 {
   flex: 1;
   min-width: 320px;
   height: 550px;
-  background: url("assets/allan-lainez-2d0qB6Gz6ko-unsplash.jpg");
+  background: url("https://res.cloudinary.com/db6wphzmr/image/upload/f_webp/q_auto:best/allan-lainez-2d0qB6Gz6ko-unsplash_lk4mc0");
   background-size: cover;
   border: 1px solid var(--silver);
   box-shadow: 20px 20px 0px var(--deep-oak);
